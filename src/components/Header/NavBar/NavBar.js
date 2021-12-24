@@ -20,7 +20,7 @@ export const NavBar = () => {
                 <li><a href="a">Envios</a></li>
                 <li><a href="a">Contacto</a></li>
             </ul>
-            <CartWidget />
+            <CartWidget saludo={"hola estoy hablando desde navbar"} />
         </div>
         
     )

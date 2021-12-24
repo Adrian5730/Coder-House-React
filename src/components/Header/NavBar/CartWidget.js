@@ -2,8 +2,9 @@ import React from 'react'
 import { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
+import './CartWidget.css'
 
-export const CartWidget = () => {
+export const CartWidget = ({saludo}) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -11,7 +12,7 @@ export const CartWidget = () => {
     return (
         <>
             <Button variant="primary" onClick={handleShow}>
-                Launch static backdrop modal
+                Carrito
             </Button>
 
             <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
@@ -19,8 +20,7 @@ export const CartWidget = () => {
                     <Modal.Title>Modal title</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    I will not close if you click outside me. Don't even try to press
-                    escape key.
+                    Aqui apareceran los productos
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
@@ -29,6 +29,8 @@ export const CartWidget = () => {
                     <Button variant="primary">Understood</Button>
                 </Modal.Footer>
             </Modal>
+
+            <p className="saludo">{saludo}</p>
         </>
     )
 }
