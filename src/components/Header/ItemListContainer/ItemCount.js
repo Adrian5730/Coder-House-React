@@ -1,9 +1,9 @@
 import React from 'react'
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 
 const ItemCount = () => {
     
-    const [stock, setstock] = useState(5)
+    const stock = 5;
     const [count, setCount] = useState(1)
 
     const  handleCount =() =>{

@@ -3,6 +3,7 @@ import './components/Header/Header.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from './components/Header/NavBar/NavBar';
 import { ItemListContainer } from './components/Header/ItemListContainer/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 // import { CartWidget } from './components/NavBar/CartWidget';
 
@@ -10,10 +11,12 @@ import { ItemListContainer } from './components/Header/ItemListContainer/ItemLis
 function App() {
 
   return (
-    <header id="header">
-      <NavBar />
-      <ItemListContainer/>
-    </header>
+    <>
+      <header id="header">
+        <NavBar />
+        <ItemDetailContainer />
+      </header>
+    </>
       
   );
 }
