@@ -68,3 +68,20 @@ div.menu ul ul li a {
         border-radius: 10px;
     }
 }
+
+/* CSS Header*/
+
+header {
+    background-color: #2e2e2e;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 100px;
+    transition: 0.6s;
+    transition-property: initial;
+}

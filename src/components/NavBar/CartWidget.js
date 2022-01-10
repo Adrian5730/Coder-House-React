@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
 import './CartWidget.css'
 
-export const CartWidget = ({saludo}) => {
+export const CartWidget = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -29,8 +29,6 @@ export const CartWidget = ({saludo}) => {
                     <Button variant="primary">Understood</Button>
                 </Modal.Footer>
             </Modal>
-
-            <p className="saludo">{saludo}</p>
         </>
     )
 }

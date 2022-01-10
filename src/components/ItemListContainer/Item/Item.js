@@ -8,3 +8,4 @@ export const Item = ({producto}) => {
         </div>
     )
 }
+

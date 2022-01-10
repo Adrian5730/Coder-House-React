@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import { traerProductos } from '../Header/ItemListContainer/products'
+import { traerProductos } from '../TraerProductos/TraerProductos'
 import ItemDetail from './ItemDetail/ItemDetail'
 
 const ItemDetailContainer = () => {
