@@ -1,0 +1,81 @@
+/*  Footer  */
+footer {
+    display: flex;
+    margin: auto;
+    text-align: center;
+    justify-content: space-around;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    background-color: #001f3f;
+    color: #fff;
+    flex-wrap: wrap;
+    padding: 15px 0px;
+}
+
+footer div.contenedorInfo {
+    justify-content: center;
+    font-size: 15px;
+    border-left: 1px solid #000;
+    width: 33%;
+}
+
+footer div.contenedorInfo div.infoRedes {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 10px 0px;
+    display: flex;
+}
+
+footer div.contenedorInfo div.infoRedes img {
+    width: 35px;
+    margin: 0 10px;
+}
+
+footer div.contenedorInfo div.nosotros {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+
+footer div.contenedorInfo div.nosotros a {
+    text-decoration: none;
+    color: #fff;
+    margin: 5px;
+}
+
+footer span {
+    font-size: 14px;
+}
+
+footer div.linea {
+    width: 95%;
+    margin: auto;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    footer {
+        padding: 0;
+        padding-bottom: 20px;
+    }
+
+    footer div.contenedorInfo {
+        margin: 10px 0;
+        width: 50%;
+        border: 0px;
+    }
+}
+
+@media (max-width: 700px) {
+    footer div.contenedorInfo {
+        width: 100%;
+    }
+
+    footer div.linea {
+        display: block;
+    }
+}
