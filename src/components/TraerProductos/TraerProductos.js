@@ -5,7 +5,8 @@ const products = [
         envio: "Envio Gratis",
         precio: 12.999,
         imagen: "images/productos/PICA0001X.webp",
-        categoria: "2"
+        categoria: "2",
+        stock: 3
     },
     {
         id: "2",
@@ -13,7 +14,8 @@ const products = [
         envio: "Envio Gratis",
         precio: 37.999,
         imagen: "images/productos/IMP3D001.webp",
-        categoria: "1"
+        categoria: "1",
+        stock: 4
     },
     {
         id: "3",
@@ -21,7 +23,8 @@ const products = [
         envio: "Envio Gratis",
         precio: 3.999,
         imagen: "images/productos/P2P00013X.jpg",
-        categoria: "4"
+        categoria: "4",
+        stock: 3
     },
     {
         id: "4",
@@ -29,7 +32,8 @@ const products = [
         envio: "Envio Gratis",
         precio: 85.999,
         imagen: "images/productos/DRDJI017.webp",
-        categoria: "1"
+        categoria: "1",
+        stock: 1
     },
     {
         id: "5",
@@ -37,7 +41,8 @@ const products = [
         envio: "Envio Gratis",
         precio: 22.549,
         imagen: "images/productos/TAB0024D.jpg",
-        categoria: "1"
+        categoria: "1",
+        stock: 7
     },
     {
         id: "6",
@@ -45,7 +50,8 @@ const products = [
         envio: "Envio $500",
         precio: 37.149,
         imagen: "images/productos/TABSAM5G.jpg",
-        categoria: "1"
+        categoria: "1",
+        stock: 8
     },
     {
         id: "7",
@@ -53,7 +59,8 @@ const products = [
         envio: "Envio $ 500",
         precio: 13.999,
         imagen: "images/productos/CONT001.jpg",
-        categoria: "2"
+        categoria: "2",
+        stock: 5
     },
     {
         id: "8",
@@ -61,7 +68,8 @@ const products = [
         envio: "Envio Gratis",
         precio: 19.399,
         imagen: "images/productos/GAZEBO01.jpg",
-        categoria: "4"
+        categoria: "4",
+        stock: 3
     },
     {
         id: "9",
@@ -69,7 +77,8 @@ const products = [
         envio: "Envio Gratis",
         precio: 111.799,
         imagen: "images/productos/NOT00191.jpg",
-        categoria: "1"
+        categoria: "1",
+        stock: 7
     },
     {
         id: "10",
@@ -77,7 +86,8 @@ const products = [
         envio: "Envio Gratis",
         precio: 38.099,
         imagen: "images/productos/PROJ0032.jpg",
-        categoria: "1"
+        categoria: "1",
+        stock: 4
     },
     {
         id: "11",
@@ -85,7 +95,8 @@ const products = [
         envio: "Envio $ 500",
         precio: 85.999,
         imagen: "images/productos/PROJ0032.jpg",
-        categoria: "1"
+        categoria: "1",
+        stock: 5
     },
     {
         id: "12",
@@ -93,7 +104,8 @@ const products = [
         envio: "Envio Gratis",
         precio: 21.099,
         imagen: "images/productos/CELLGK25.webp",
-        categoria: "1"
+        categoria: "1",
+        stock: 3
     },
     {
         id: "13",
@@ -101,7 +113,8 @@ const products = [
         envio: "Envio Gratis",
         precio: 10.649,
         imagen: "images/productos/SOLD0005.webp",
-        categoria: "1"
+        categoria: "1",
+        stock: 2
     },
     {
         id: "14",
@@ -109,7 +122,8 @@ const products = [
         envio: "Envio Gratis",
         precio: 99.999,
         imagen: "images/productos/ROB00080.webp",
-        categoria: "3"
+        categoria: "3",
+        stock: 7
     },
     {
         id: "15",
@@ -117,7 +131,8 @@ const products = [
         envio: "Envio Gratis",
         precio: 199.999,
         imagen: "images/productos/DRDJI018.webp",
-        categoria: "1"
+        categoria: "1",
+        stock: 8
     },
     {
         id: "16",
@@ -125,7 +140,8 @@ const products = [
         envio: "Envio Gratis",
         precio: 12.649,
         imagen: "images/productos/MOTH0125.webp",
-        categoria: "1"
+        categoria: "1",
+        stock: 9
     }
 ]
 

@@ -1,42 +1,30 @@
 import React from 'react'
 import {useState} from 'react'
 
-const ItemCount = () => {
+const ItemCount = ({stock, onAdd}) => {
     
-    const stock = 5;
-    const [count, setCount] = useState(1)
+    const initial = 1;
+    const [count, setCount] = useState(initial)
 
     const  handleCount =() =>{
-        if (stock===count) {
-            alert('no queda mas stock')
-        } else {
-            setCount(count+1)
-        }
-
+        count <  stock
+        ? setCount(prev => prev + 1)
+        :alert("stock maximo alcanzado")
     }
 
     const  handleDiscount =() =>{
-        if (count===0) {
-            alert('no tienes mas unidades')
-        } else{
-            setCount(count-1)
-        }
+        count > initial &&
+            setCount( prev => prev - 1)
     }
-
-    const  message =() =>{
-        alert("se activo agregar al carrito")
-    }
-
-
 
 
     return (
-        <>
-            <button onClick={handleCount}>+</button>
+        <div>
             <p>{count}</p>
-            <button onClick={handleDiscount}>-</button>
-            <button onClick={message}>Agregar al carrito</button>
-        </>
+            <button onClick={handleCount}>+</button>
+            <button onClick={()=> onAdd(count)} disabled={count < 1 && 'disabled'}>Agregar al carrito</button>
+            <button onClick={handleDiscount}>-</button>   
+        </div>
     )
 }
 
