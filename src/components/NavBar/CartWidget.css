@@ -1,0 +1,18 @@
+#iconCarrito{
+    text-decoration: none;
+    text-align: center;
+    
+}
+
+.contenedorCarrito{
+    position: relative;
+}
+
+.itemsCarrito{
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    border-radius: 20px;
+    font-size: 13px;
+
+}

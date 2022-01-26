@@ -9,7 +9,7 @@ const ItemCount = ({stock, onAdd}) => {
     const  handleCount =() =>{
         count <  stock
         ? setCount(prev => prev + 1)
-        :alert("stock maximo alcanzado")
+        :console.log("stock maximo alcanzado")
     }
 
     const  handleDiscount =() =>{

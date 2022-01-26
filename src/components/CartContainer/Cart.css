@@ -1,0 +1,60 @@
+/*  Articulos  */
+div#productsCart {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+div#productsCart .cartProduct {
+    width: 60%;
+    align-items: center;
+    margin: 10px auto;
+    text-align: center;
+}
+
+div#productsCart .cartProduct div.product {
+    border-radius: 15px;
+    border: 1px solid #eaeaea;
+    display: flex;
+}
+
+div#productsCart .cartProduct div.product:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+
+div#productsCart .cartProduct .card__imgproduct {
+    padding: 10px 0 10px 10px;
+    display: inline-block;
+    width: 15%;
+}
+
+div#productsCart div.card__title{
+
+    width:60%;
+    margin: auto 5px;
+    
+}
+
+ div.card__title h2 {
+    color: #444;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 15px;
+    text-align: start;
+}
+
+div#productsCart div.card__cost {
+    flex-direction: row;
+    width: 10%;
+    align-items: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
