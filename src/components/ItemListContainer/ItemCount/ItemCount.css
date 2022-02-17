@@ -1,0 +1,32 @@
+div.containerCount{
+    text-align: center;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 200px;
+}
+
+div.containerCount div.cantainerOperaciones{
+    display: flex;
+    align-items: center ;
+}
+
+div.containerCount div.cantainerOperaciones button{
+    margin: 0 20px;
+}
+
+div.containerCount div.cantainerOperaciones span{
+    font-size: 30px;
+}
+
+button.operaciones{
+    border-radius: 18px;
+    background-color: white;
+    color: blue;
+}
+
+div.cantainerAgregarCart button{
+    font-size: 24px;
+    font-family: "Open Sans",sans-serif;
+}

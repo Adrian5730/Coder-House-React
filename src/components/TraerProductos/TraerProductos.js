@@ -145,20 +145,6 @@ const products = [
     }
 ]
 
-// const categorias = [
-//     { 
-//         1: "Tecnologia",
-//     },
-//     {
-//         2: "Electro y hogar"
-//     }, 
-//     {
-//         3: "Salud y belleza"
-//     },
-//     {
-//         4: "Seguridad y vigilancia"
-//     }
-// ]
 
 export const traerProductos = new Promise ((resolve,reject) => {
     let condicion = true;

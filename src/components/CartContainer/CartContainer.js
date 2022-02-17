@@ -1,7 +1,7 @@
 import { useCartContext } from '../../context/cartContext';
-import {Link} from 'react-router-dom'
+import  CartVacio  from './CartVacio/CartVacio'
 import CartProducts from './CartProducts/CartProducts';
-import './Cart.css'
+import './CartContainer.css'
 
 const CartContainer = () => {
 
@@ -10,7 +10,7 @@ const CartContainer = () => {
     return (
         <>
             {cartList.length !== 0 ? <CartProducts /> 
-            : <h2>No tienes productos, puedes ir al <Link to="/">catalogo</Link></h2> }
+            : <CartVacio /> }
 
         </>
     );

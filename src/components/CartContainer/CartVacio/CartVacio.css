@@ -1,0 +1,12 @@
+div.carritoVacio {
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+
+@media (max-width: 600px){
+    div.carritoVacio img{
+        width: 80%;
+    }
+}

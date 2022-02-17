@@ -1,16 +1,22 @@
 import { useCartContext } from '../../../context/cartContext';
-import {  collection, getFirestore, addDoc, doc, updateDoc, query, documentId, writeBatch, getDocs, where } from 'firebase/firestore'
+import { collection, getFirestore, addDoc, query, documentId, writeBatch, getDocs, where } from 'firebase/firestore'
+import './CartProducts.css'
+import { Container, Row, Col, Button, Form } from 'react-bootstrap'
+import { useState } from 'react';
 
 const CartProducts = () => {
 
     const { cartList, precioTotal, vaciarCarrito, vaciarCarritoItem } = useCartContext()
+    const [datosCliente, setdatosCliente] = useState({})
+
+
 
 
     const realizarCompra = async () => {
         let orden = {}
 
-        orden.buyer = { nombre: 'Adrian', email: 'adrian@adrian.com', tel: '7831711' }
-        orden.total = precioTotal; 
+        orden.buyer = datosCliente;
+        orden.total = precioTotal;
 
         orden.items = cartList.map(cartItem => {
             const id = cartItem.id;
@@ -18,89 +24,116 @@ const CartProducts = () => {
             const precio = cartItem.precio * cartItem.cantidad;
             const cantidad = cartItem.cantidad;
 
-            return {id, nombre, precio, cantidad}
+            return { id, nombre, precio, cantidad }
         })
-        
-        //Guardando Orden
+
+
         const db = getFirestore()
         const ordenCollection = collection(db, 'ordenes')
         await addDoc(ordenCollection, orden)
-        .then(resp => console.log(resp))
-        .catch(error => console.log(error))
-        .finally(() => console.log('cargando'))
+            .then(resp => console.log(resp))
+            .catch(error => console.log(error))
+            .finally(() => console.log('cargando'))
 
-        //actualizando
-        // const orderDoc = doc(db, 'productos','94TwnUVfDzf3rZ2Z0qaI');
-        // updateDoc(orderDoc, {precio: 199.999})
-
-
-        //actualizar Stock
         const queryCollection = collection(db, 'productos')
-
-        //console.log(queryCollection)
         const queryActualizarStock = query(
             queryCollection, where(documentId(), 'in', cartList.map(it => it.id))
         )
-        const  batch = writeBatch(db)
+        const batch = writeBatch(db)
 
         await getDocs(queryActualizarStock)
-        .then(resp => resp.docs.forEach(res => batch.update(res.ref,{
-            stock: res.data().stock - cartList.find(item => item.id === res.id).cantidad
+            .then(resp => resp.docs.forEach(res => batch.update(res.ref, {
+                stock: res.data().stock - cartList.find(item => item.id === res.id).cantidad
             })
-        ))
-        .catch(error => console.log(error))
-        .finally(()=> console.log('stock actualizado'))
+            ))
+            .catch(error => console.log(error))
+            .finally(() => console.log('stock actualizado'))
 
         batch.commit()
 
     }
 
-    
+    function redondearDecimales(numero, decimales) {
+        const numeroRegexp = new RegExp('\\d\\.(\\d){' + decimales + ',}');   // Expresion regular para numeros con un cierto numero de decimales o mas
+        if (numeroRegexp.test(numero)) {         // Ya que el numero tiene el numero de decimales requeridos o mas, se realiza el redondeo
+            return Number(numero.toFixed(decimales));
+        } else {
+            return Number(numero.toFixed(decimales)) === 0 ? 0 : numero;  // En valores muy bajos, se comprueba si el numero es 0 (con el redondeo deseado), si no lo es se devuelve el numero otra vez.
+        }
+    }
 
     return (
         <>
-            {cartList.map(prod => <li key={prod.id}>{prod.titulo} - cant: {prod.cantidad}</li>)}
-            <button onClick={vaciarCarrito}>vaciarCarrito</button>
-            <button onClick={realizarCompra}>Generar Orden</button>
+            <Container>
+                {cartList.map(producto =>
 
-
-
-
-            {/* {cartList.map(producto =>
-                <>
-                    <div id='productsCart'>
-                        <div id={producto.id} className="cartProduct">
-                            <div className="product" >
-                                <div className="card__imgproduct">
+                    <Row id='productsCart'>
+                        <div id={producto.id} className="cartProduct" >
+                            <div className="product">
+                                <Col className="card__imgproduct" xs={2} xl={2}>
                                     <img src={`../${producto.imagen}`} alt="Imagen Producto" />
-                                </div>
+                                </Col>
 
-                                <div className="card__title">
+                                <Col className="card__title" xs={5} xl={7}>
                                     <h2>{producto.titulo}</h2>
-                                </div>
-                                <div className="card__cost">
+                                </Col>
+                                <Col className="card__cantidad" xs={1} xl={1}>
                                     <p>{producto.cantidad}</p>
-                                </div>
-                                <div className="card__cost">
+                                </Col>
+                                <Col className="card__cost" xs={1} xl={1}>
                                     <p>$<strong> {producto.cantidad === 1 ? redondearDecimales(producto.precio, 3) : redondearDecimales(producto.precio * producto.cantidad, 3)}</strong></p>
-                                </div>
-                                <div className="card__cost">
-                                    <button onClick={() => vaciarCarritoItem(producto)} >Borrar</button>
-                                </div>
-
+                                </Col>
+                                <Col className="card__button" xs={3} xl={1}>
+                                    <Button variant="danger" onClick={() => vaciarCarritoItem(producto)} >Borrar</Button>
+                                </Col>
                             </div>
-
                         </div>
-                    </div>
-                </>
-            )}
-            <div className="card__cost">
+                    </Row>
 
-                <div className="card__cost">
-                    Total ${redondearDecimales(precioTotal, 3)}
-                </div>
-            </div>
-            <button onClick={vaciarCarrito}>Vaciar Carrito</button> */}
+                )}
+            </Container>
+            <Container className="container_total">
+                <Row>
+                    <Col className='container_Vaciar' xl={12}>
+                        <Button variant='danger' onClick={vaciarCarrito}>Vaciar Carrito</Button>
+                    </Col>
+                </Row>
+                <Row className='container_info_total'>
+                    <Col className='spanTotal' xs={5} xl={9}>
+                        <strong><span>Total</span></strong>
+                    </Col>
+                    <Col xs={7} xl={3} className='precio_total' >
+                        <span>$ <strong>{redondearDecimales(precioTotal, 3)}</strong></span>
+                    </Col>
+                </Row>
+            </Container>
+            <Container className='container_vaciar'>
+                <Row>
+                    <Col xl={12}>
+                        <Form>
+                            <Col xl={{ offset: 3, span: 6 }}>
+                                <Form.Group className="mb-3" controlId="formBasicEmail">
+                                    <Form.Label>Nombre</Form.Label>
+                                    <Form.Control required onChange={event => setdatosCliente({ ...datosCliente, nomnbre: event.target.value })} type="text" placeholder="Adrian Olave" />
+                                </Form.Group>
+                            </Col>
+                            <Col xl={{ offset: 3, span: 6 }} >
+                                <Form.Group className="mb-3" controlId="formBasicPassword">
+                                    <Form.Label>Correo</Form.Label>
+                                    <Form.Control required onChange={event => setdatosCliente({ ...datosCliente, correo: event.target.value })} type="email" placeholder="Password" />
+                                </Form.Group>
+                            </Col>
+                            <Col xl={{ offset: 3, span: 6 }} >
+                                <Form.Group className="mb-3" controlId="Prueba@gmail.com">
+                                    <Form.Label>Password</Form.Label>
+                                    <Form.Control required onChange={event => setdatosCliente({ ...datosCliente, telefono: event.target.value })} type="number" placeholder="1125121089" />
+                                </Form.Group>
+                            </Col>
+                            <Button variant='success' type='submit' onClick={realizarCompra}>Generar Compra</Button>
+                        </Form>
+                    </Col>
+                </Row>
+            </Container>
         </>
     );
 };

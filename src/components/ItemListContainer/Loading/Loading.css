@@ -1,0 +1,19 @@
+
+.childLoading{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    align-items: center;
+}
+
+.iconLoading{
+    width: 100px;
+    height: 100px;
+}
+
+.messageLoading{
+    font-size: xx-large;
+    font-style: oblique;
+    font-weight: 500;
+}
